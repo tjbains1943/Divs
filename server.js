@@ -9,7 +9,7 @@ var holder1;
 var holder2;
 var holder3;
 var holder4;
-var Port = 8080;
+var Port = process.env.PORT || 8080;
 var app = express();
 
 // parsed to get cookie and body variable data
