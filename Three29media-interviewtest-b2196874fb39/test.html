@@ -1,0 +1,293 @@
+<!-- <?php
+
+//some settings
+$random_images = array(
+	'http://icons.iconarchive.com/icons/zairaam/bumpy-planets/256/07-jupiter-icon.png',
+	'http://www.princeton.edu/~willman/planetary_systems/Sol/Saturn/Saturn.gif',
+	'http://www.solstation.com/stars/venus.gif',
+	'http://quest.nasa.gov/mars/background/images/mars.gif'
+);
+
+$cover_image = 'http://www.lovethispic.com/uploaded_images/20521-Rocky-Beach-Sunset.jpg';
+
+//php code here
+
+?> -->
+
+<!doctype html>
+<html lang="en">
+<head>
+<title>Three29 Test</title>
+<style>
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* css here */
+html, body, div { height: 100%; width: 100%; margin: 0; }
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+}
+.divitem {
+	height: 25%;
+}
+
+.div1F {
+	background-image: url('http://www.lovethispic.com/uploaded_images/20521-Rocky-Beach-Sunset.jpg');
+	background-size: cover;
+	width: 25%;
+	
+}
+
+.div2F {
+	background-color: orange;
+	width: 75%;
+}
+
+.div3F { 
+	background-color: blue;
+	width: 50%;
+}
+
+.div4F {
+	background-color: yellow;
+	width: 90%;
+	text-align: center;
+	font-size: 150%;
+}
+
+img {
+	text-align: center;
+	max-width: 90%;
+	max-height: 90%;
+	height: auto;
+	display: block;
+	position: relative;
+	margin-left: auto;
+    margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	
+
+}
+
+span {
+	width: 100%;
+	height: 100%;
+}
+
+.div1A {
+	background-image: url('http://www.lovethispic.com/uploaded_images/20521-Rocky-Beach-Sunset.jpg');
+	background-size: cover;
+	width: 100%;
+
+}
+.div2A {
+	background-color: orange;
+	width: 100%;
+
+}
+
+.div3A {
+	background-color: red;
+	width: 100%;
+}
+
+.div4A {
+	background-color: yellow;
+	width: 100%;
+	height: 25%;
+	text-align: center;
+	font-size: 150%;
+}
+
+@media only screen and (max-width: 600px) {
+    #div3 {
+		display: none;
+	}
+
+	#div4 {
+		display: none;
+	}
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- script for animation -->
+<script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+  integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+
+</head>
+<body>
+	<!-- added class to toggle instead of id, because id won't toggle using jquery UI-->
+<div id="wrapper">
+	<div id="div1" class="divitem div1F">
+	</div>
+	<div id="div2" class="divitem div2F">
+
+	</div>
+	<div id="div3" class="divitem div3F">
+	</div>
+	<div id="div4" class="divitem div4F">
+	</div>
+</div>
+
+<script>
+	// created a database to interact with app, used that to store info
+	$.get("/div1", function(data){
+		if(data.key) {
+		$("#div1").attr("class", data.key);
+		}
+	})
+	$.get("/div2", function(data){
+		if(data.key) {
+		$("#div2").attr("class", data.key);
+		}
+	})
+	$.get("/div3", function(data){
+		if(data.key) {
+		$("#div3").attr("class", data.key);
+		}
+	})
+	$.get("/div4", function(data){
+		if(data.key) {
+		$("#div4").attr("class", data.key);
+		}
+	})
+
+// converted given variables to JS to keep consistent
+		var randomImages = [
+			'http://icons.iconarchive.com/icons/zairaam/bumpy-planets/256/07-jupiter-icon.png',
+			'http://www.princeton.edu/~willman/planetary_systems/Sol/Saturn/Saturn.gif',
+			'http://www.solstation.com/stars/venus.gif',
+		];
+		var coverImage = 'http://www.lovethispic.com/uploaded_images/20521-Rocky-Beach-Sunset.jpg';
+		var div2;
+		// generated a random index number to get random pic, and then made a span to hold img. This was appended to div2. 
+		var randIndex = Math.floor(Math.random() * randomImages.length);
+		var currentImage = randomImages[randIndex];
+		var span = $("<span>");
+		var img = $("<img>");
+		
+		img.attr("src", currentImage);
+		span.append(img);
+		$("#div2").append(span);
+
+		// for the numbers, I iterated using one loop and logged necessary numbers using a counter. This was appended to div 4. 
+		var numHolder = "";
+		var counter = 1;
+			for (let x = 0; x < 9; x++) {
+					if(x >= 4) {
+						numHolder += counter.toString() + " ";
+						counter -= 2;
+					}
+					if (x< 4) {
+						numHolder += counter.toString() + " ";
+						counter += 2;
+					}
+					}
+			$("#div4").append(numHolder);
+
+
+// On click event handler for div 1. The data for the div1 class attribute was stored on the backend to keep webpage persistent on refresh. A cookie was also created.
+$("#div1").on("click", function(data) {
+	$(this).toggleClass("div1F div1A", 1000);
+	switchClass(1);
+			$.cookie('div1', div1, { path: '/' });
+	$.post("/div1", {key:div2})
+	
+})
+
+// Same exact as above. 
+$("#div2").on("click", function(data) {
+	$(this).toggleClass("div2F div2A", 1000);
+switchClass(2);
+			$.cookie('div2', div1, { path: '/' });	
+	$.post("/div2", {key:div2})
+})
+
+$("#div3").on("click", function(data) {
+		$(this).toggleClass("div3F div3A", 1000);
+		switchClass(3);
+			$.cookie('div3', div1, { path: '/' });
+	$.post("/div3", {key:div2})
+
+})
+
+$("#div4").on("click", function(data) {
+	$(this).toggleClass("div4F div4A", 1000);
+	switchClass(4);
+			$.cookie('div4', div1, { path: '/' });
+	$.post("/div4", {key:div2})
+})		
+
+// console.log($.cookie());
+
+// Due to async animation, the opposite of the class needed to keep app persistent kept being stored, so this function grabbed the right one. 
+function switchClass(num) {
+	var div1 = $("#div" + num + "").attr("class");
+	if(div1 === "divitem div" + num + "F") {
+		div2 = "divitem div" + num + "A"}
+		else {
+			div2 = "divitem div" + num + "F"};
+}
+
+		</script>
+</body>
+</html>
