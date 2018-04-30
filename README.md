@@ -1,6 +1,6 @@
 # Divs
 
-#Tools used
+# Tools used
 HTML, JavaScript, Node.js, jQuery, jQuery UI, Git, Heroku, npm packages- body-parser, cookie-parser, express, and path, 
 
 # About
